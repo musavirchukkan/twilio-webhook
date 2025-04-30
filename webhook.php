@@ -13,7 +13,7 @@ use Twilio\Security\RequestValidator;
 
 // --- Configuration ---
 // WebSocket endpoint to stream call audio to
-$websocketUrl = 'wss://devapi.ivoz.ai/llm-campaigns/ws/groq/?bot=ivoz';
+$websocketUrl = $_ENV['WEBSOCKET_URL'];
 // Stream track options: 'inbound_track', 'outbound_track', or 'both_tracks'
 $streamTrack = 'inbound_track';
 // Get Twilio Auth Token for request validation
