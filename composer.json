@@ -1,0 +1,22 @@
+{
+    "name": "musavir/twilio-webhook",
+    "description": "Twilio Voice Call Stream Webhook Handler",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Abdul Musavir Chukkan",
+            "email": "musavirc17@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Musavir\\TwilioWebhook\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.4",
+        "twilio/sdk": "^7.0",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "minimum-stability": "stable"
+}
