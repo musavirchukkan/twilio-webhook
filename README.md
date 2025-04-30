@@ -39,7 +39,11 @@ twilio-webhook/
    cp .env.sample .env
    ```
 
-   The default configuration in `.env.sample` includes the provided credentials, but you should review it to ensure all values are correct.
+5. Create a logs directory:
+
+   ```bash
+   mkdir logs
+   ```
 
 ### 2. Local Development Testing
 
@@ -65,7 +69,7 @@ For local testing, you'll need to expose your local server to the internet using
 
 2. Navigate to "Phone Numbers" → "Manage" → "Active Numbers"
 
-3. Select the number `+1 (934) 253-0570`
+3. Select the number `+1 (xxx) xxx-xxxx`
 
 4. In the "Voice & Fax" section, under "A CALL COMES IN":
    - Select "Webhook" from the dropdown
@@ -77,11 +81,11 @@ For local testing, you'll need to expose your local server to the internet using
 
 1. Make sure your PHP server and ngrok are both running.
 
-2. Call the configured Twilio phone number `+1 (934) 253-0570`.
+2. Call the configured Twilio phone number `+1 (xxx) xxx-xxxx`.
 
 3. Check the logs in the `logs/` directory to verify the call was received and TwiML was generated.
 
-4. Verify that your WebSocket server at `wss://devapi.ivoz.ai/llm-campaigns/ws/groq/?bot=ivoz` receives a connection and the audio stream from Twilio.
+4. Verify that your WebSocket server at `wss:webhook-server-url` receives a connection and the audio stream from Twilio.
 
 ### 5. Production Deployment
 
@@ -96,16 +100,6 @@ For production deployment:
 4. Configure proper server logging.
 
 5. Update the Twilio webhook URL in your Twilio console to point to your production URL.
-
-## Security Considerations
-
-1. **Never commit your `.env` file to version control.**
-
-2. Ensure request validation is enabled in production to verify requests come from Twilio.
-
-3. Use HTTPS for your webhook endpoint, as Twilio will not send requests to insecure endpoints in production.
-
-4. Regularly update the Twilio SDK and all dependencies.
 
 ## Troubleshooting
 
